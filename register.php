@@ -54,10 +54,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     else {
         $hash = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO users (name,nic,email,password) VALUES ('$name','$nic','$email','$$hash')";
+        $sql = "INSERT INTO users (name,nic,email,password) VALUES ('$name','$nic','$email','$hash')";
 
         mysqli_query($conn, $sql);
-        echo "registered";
+        header("Location:login.php");
     }
 }
 
